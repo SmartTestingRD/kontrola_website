@@ -3,6 +3,8 @@ import { AuthProvider, useAuth } from './presentation/context/AuthContext';
 import { Dashboard } from './presentation/pages/Dashboard';
 import { Login } from './presentation/pages/Login';
 import { SorteoDetail } from './presentation/pages/SorteoDetail';
+import { JuegoDetail } from './presentation/pages/JuegoDetail';
+import { TicketConsult } from './presentation/pages/TicketConsult';
 import { MainLayout } from './presentation/components/layout/MainLayout';
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -45,6 +47,26 @@ export default function App() {
                             <ProtectedRoute>
                                 <MainLayout>
                                     <SorteoDetail />
+                                </MainLayout>
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/sorteo/:sorteo_id/juego/:juego_id"
+                        element={
+                            <ProtectedRoute>
+                                <MainLayout>
+                                    <JuegoDetail />
+                                </MainLayout>
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/ticket"
+                        element={
+                            <ProtectedRoute>
+                                <MainLayout>
+                                    <TicketConsult />
                                 </MainLayout>
                             </ProtectedRoute>
                         }

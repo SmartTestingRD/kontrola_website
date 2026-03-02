@@ -25,7 +25,7 @@ export default async function handler(req: Request, res: Response) {
 
     try {
         // This is the proxy request to Unipago
-        const unipagoUrl = process.env.UNIPAGO_API_URL || 'https://api.unipago.example.com';
+
         const endpoint = req.query.endpoint as string || '';
 
         // Mocking the response for the baseline without making an actual fetch right now

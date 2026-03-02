@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Ticket, Trophy, AlertTriangle, Clock, DollarSign, List, Calendar, Home as HomeIcon, Hash } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
@@ -46,6 +46,7 @@ export const SorteoDetail = () => {
     const [juegos, setJuegos] = useState<Juego[]>([]);
     const [detalles, setDetalles] = useState<Detalles | null>(null);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     const fetchDetail = useCallback(async () => {
         setLoading(true);
@@ -178,7 +179,11 @@ export const SorteoDetail = () => {
                                         </thead>
                                         <tbody>
                                             {juegos.map((j, i) => (
-                                                <tr key={i} className="border-b border-gray-100 hover:bg-gray-50">
+                                                <tr
+                                                    key={i}
+                                                    className="border-b border-gray-100 hover:bg-gray-50 cursor-pointer"
+                                                    onClick={() => navigate(`/sorteo/${sorteo_id}/juego/${j.juego_id}?consorcio_id=`)}
+                                                >
                                                     <td className="px-3 py-2 border-r border-gray-200">
                                                         <span className="text-[#1E88E5] font-medium">{j.juego_nombre}</span>
                                                         <div className="text-[10px] text-gray-400 flex items-center gap-1 mt-[1px]">

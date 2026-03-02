@@ -5,6 +5,8 @@ import loginHandler from '../../api/login';
 import proxyHandler from '../../api/proxy';
 import sorteosHandler from '../../api/sorteos';
 import sorteoDetailHandler from '../../api/sorteo-detail';
+import juegoDetailHandler from '../../api/juego-detail';
+import ticketHandler from '../../api/ticket';
 
 dotenv.config();
 
@@ -18,6 +20,8 @@ app.use(express.json());
 app.post('/api/login', loginHandler);
 app.get('/api/sorteos', sorteosHandler);
 app.get('/api/sorteo-detail', sorteoDetailHandler);
+app.get('/api/juego-detail', juegoDetailHandler);
+app.get('/api/ticket', ticketHandler);
 app.all('/api/proxy', proxyHandler);
 
 app.listen(PORT, () => {
