@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Trophy, MapPin } from 'lucide-react';
+import { Home, Trophy, MapPin, Shield } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useLocation, Link } from 'react-router-dom';
 
@@ -70,6 +70,24 @@ export const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
                         {!collapsed && 'Consultar Ticket'}
                     </Link>
                 </div>
+
+                {user?.isStaff && (
+                    <>
+                        {!collapsed && (
+                            <p className="px-5 text-[10px] uppercase tracking-wider text-white/40 mb-2 mt-5 font-semibold">Administración</p>
+                        )}
+                        <div>
+                            <Link
+                                to="/admin/kontrola/kontrolauser"
+                                className={`flex items-center gap-3 px-5 py-[9px] text-[13px] transition-colors hover:bg-white/5 text-white/60
+                                    ${location.pathname === '/admin/kontrola/kontrolauser' ? 'bg-white/10 text-white' : ''}`}
+                            >
+                                <Shield size={16} />
+                                {!collapsed && <span>Usuarios</span>}
+                            </Link>
+                        </div>
+                    </>
+                )}
             </nav>
         </aside>
     );

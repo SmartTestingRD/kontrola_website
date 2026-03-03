@@ -16,7 +16,7 @@ export default async function handler(req: Request, res: Response) {
 
     try {
         const token = authHeader.split(' ')[1];
-        const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret') as any;
+        jwt.verify(token, process.env.JWT_SECRET || 'secret');
 
         const serial = req.query.serial as string;
         const sistemaId = (req.query.sistema_id as string) || '1';

@@ -7,6 +7,7 @@ interface UserData {
     lastName: string;
     consorcioId: number;
     forcePasswordChange: boolean;
+    isStaff: boolean;
 }
 
 interface AuthContextType {

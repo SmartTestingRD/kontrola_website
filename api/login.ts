@@ -34,7 +34,8 @@ export default async function handler(req: Request, res: Response) {
                 {
                     id: user.id,
                     email: user.email,
-                    consorcioId: user.consorcioId
+                    consorcioId: user.consorcioId,
+                    isStaff: user.isStaff
                 },
                 process.env.JWT_SECRET || 'secret',
                 { expiresIn: '24h' }
@@ -48,7 +49,8 @@ export default async function handler(req: Request, res: Response) {
                     firstName: user.firstName,
                     lastName: user.lastName,
                     consorcioId: user.consorcioId,
-                    forcePasswordChange: user.forcePasswordChange
+                    forcePasswordChange: user.forcePasswordChange,
+                    isStaff: user.isStaff
                 }
             });
         }

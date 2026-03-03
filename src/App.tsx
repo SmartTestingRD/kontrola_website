@@ -5,6 +5,7 @@ import { Login } from './presentation/pages/Login';
 import { SorteoDetail } from './presentation/pages/SorteoDetail';
 import { JuegoDetail } from './presentation/pages/JuegoDetail';
 import { TicketConsult } from './presentation/pages/TicketConsult';
+import { UserManagement } from './presentation/pages/admin/UserManagement';
 import { MainLayout } from './presentation/components/layout/MainLayout';
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -67,6 +68,16 @@ export default function App() {
                             <ProtectedRoute>
                                 <MainLayout>
                                     <TicketConsult />
+                                </MainLayout>
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/admin/kontrola/kontrolauser"
+                        element={
+                            <ProtectedRoute>
+                                <MainLayout>
+                                    <UserManagement />
                                 </MainLayout>
                             </ProtectedRoute>
                         }

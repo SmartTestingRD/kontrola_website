@@ -7,6 +7,9 @@ import sorteosHandler from '../../api/sorteos';
 import sorteoDetailHandler from '../../api/sorteo-detail';
 import juegoDetailHandler from '../../api/juego-detail';
 import ticketHandler from '../../api/ticket';
+import consorciosHandler from '../../api/consorcios';
+import usersIndexHandler from '../../api/admin/users/index';
+import userDetailHandler from '../../api/admin/users/[id]';
 
 dotenv.config();
 
@@ -22,6 +25,9 @@ app.get('/api/sorteos', sorteosHandler);
 app.get('/api/sorteo-detail', sorteoDetailHandler);
 app.get('/api/juego-detail', juegoDetailHandler);
 app.get('/api/ticket', ticketHandler);
+app.get('/api/consorcios', consorciosHandler);
+app.all('/api/admin/users', usersIndexHandler);
+app.all('/api/admin/users/:id', userDetailHandler);
 app.all('/api/proxy', proxyHandler);
 
 app.listen(PORT, () => {

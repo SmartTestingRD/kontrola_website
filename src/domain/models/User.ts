@@ -6,4 +6,5 @@ export interface User {
     passwordHash: string; // From the DB
     consorcioId: number;
     forcePasswordChange: boolean;
+    isStaff: boolean;
 }

@@ -10,6 +10,7 @@ export class UserRepository {
                 u.first_name, 
                 u.last_name, 
                 u.password, 
+                u.is_staff,
                 p.consorcio_id, 
                 p.force_password_change
             FROM kontrola_kontrolauser u
@@ -28,6 +29,7 @@ export class UserRepository {
             firstName: row.first_name,
             lastName: row.last_name,
             passwordHash: row.password,
+            isStaff: row.is_staff,
             consorcioId: row.consorcio_id,
             forcePasswordChange: row.force_password_change
         };
