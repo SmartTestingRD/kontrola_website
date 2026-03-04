@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import { UserRepository } from '../src/data/repositories/UserRepository';
-import { verifyDjangoPassword } from '../src/utils/crypto';
+import { UserRepository } from '../src/data/repositories/UserRepository.js';
+import { verifyDjangoPassword } from '../src/utils/crypto.js';
 import dotenv from 'dotenv';
 dotenv.config();
 

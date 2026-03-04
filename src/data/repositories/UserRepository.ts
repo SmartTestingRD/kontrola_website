@@ -1,5 +1,5 @@
-import { pool } from '../db';
-import { User } from '../../domain';
+import { pool } from '../db.js';
+import { User } from '../../domain/index.js';
 
 export class UserRepository {
     async findByEmail(email: string): Promise<User | null> {

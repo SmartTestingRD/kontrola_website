@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import { pool } from '../src/data/db';
+import { pool } from '../src/data/db.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
