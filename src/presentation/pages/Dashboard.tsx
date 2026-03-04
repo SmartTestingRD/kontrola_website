@@ -72,6 +72,8 @@ export const Dashboard = () => {
             if (inclExpress) params.set('incluir_express', 'on');
             if (inclRuleta) params.set('incluir_ruleta', 'on');
 
+            params.set('sistema_id', localStorage.getItem('sistema_id') || '1');
+
             const res = await fetch(`/api/sorteos?${params.toString()}`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });

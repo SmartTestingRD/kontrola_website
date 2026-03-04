@@ -51,7 +51,8 @@ export const SorteoDetail = () => {
     const fetchDetail = useCallback(async () => {
         setLoading(true);
         try {
-            const res = await fetch(`/api/sorteo-detail?sorteo_id=${sorteo_id}`, {
+            const sistemaId = localStorage.getItem('sistema_id') || '1';
+            const res = await fetch(`/api/sorteo-detail?sorteo_id=${sorteo_id}&sistema_id=${sistemaId}`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const data = await res.json();

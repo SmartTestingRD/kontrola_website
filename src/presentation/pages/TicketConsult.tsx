@@ -18,7 +18,8 @@ export const TicketConsult: React.FC = () => {
         setIsLoading(true);
         setError(null);
         try {
-            const res = await fetch(`/api/ticket?serial=${serial}`, {
+            const sistemaId = localStorage.getItem('sistema_id') || '1';
+            const res = await fetch(`/api/ticket?serial=${serial}&sistema_id=${sistemaId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

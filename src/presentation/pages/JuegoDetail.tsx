@@ -45,7 +45,8 @@ export const JuegoDetail = () => {
             const query = new URLSearchParams({
                 sorteo_id: sorteo_id || '',
                 juego_id: juego_id || '',
-                page: page.toString()
+                page: page.toString(),
+                sistema_id: localStorage.getItem('sistema_id') || '1'
             });
             if (consorcioId) query.set('consorcio_id', consorcioId);
 
